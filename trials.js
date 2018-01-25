@@ -54,10 +54,10 @@ function showPhoneNumbers(phoneMap){
 
 let transactionMap = new Map([
     ['May-2', -500],
-    ['May-13', +1,200],
+    ['May-13', +1200],
     ['May-15', -100],
     ['May-21', -359],
-    ['May-29', +2,200]
+    ['May-29', +2200]
     ]);
 
 // Add function to add transactions
@@ -83,7 +83,27 @@ function showBalanceStatus(balanceAmount){
 
 // Add function to show transactions
 
-function showTransactions
+function showTransactions(transactionMap, balanceAmount){
+    console.log(balanceAmount);
+    for (let [date, amount] of transactionMap){
+        console.log(`Transaction date: ${date}`);
+
+        if (amount > 0) {
+            console.log('Transaction type: deposit');
+        }
+        else {
+            console.log('Transaction type: withdrawal');
+        }
+
+        console.log(`Amount: ${amount}`);
+        balanceAmount += amount;
+
+        showBalanceStatus(balanceAmount);
+        if (balanceAmount < 0) {
+            balanceAmount -= 25;
+        }
+    }
+}
 
 // ///////////////////////////////////////////////////////
 // All Customer Info:
